@@ -1,0 +1,205 @@
+"use client"
+
+import { useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import Image from 'next/image'
+import { Heart, Leaf, Users, Sprout, ArrowRight } from 'lucide-react'
+
+const StorySection = ({ title, text, image, reverse = false, index, isLast = false }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  return (
+    <section ref={ref} className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+      {/* Narrative Thread (Vertical Line) */}
+      {!isLast && (
+        <div className="absolute left-1/2 bottom-0 w-px h-24 bg-linear-to-b from-emerald-200 to-transparent hidden md:block" />
+      )}
+      
+      <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-24 max-w-7xl mx-auto`}>
+        <motion.div 
+          className="w-full md:w-1/2"
+          initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="relative group overflow-hidden rounded-[2.5rem] aspect-4/3 shadow-2xl border-8 border-white">
+            <Image 
+              src={image} 
+              alt={title} 
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-emerald-950/5 group-hover:bg-transparent transition-colors duration-500" />
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="w-full md:w-1/2 space-y-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="inline-flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-emerald-900 text-white flex items-center justify-center font-bold text-lg shadow-xl">
+              {index}
+            </div>
+            <div className="h-px w-8 bg-emerald-200" />
+            <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs">The Chapter</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-emerald-950">
+            {title}
+          </h2>
+          <p className="text-xl text-emerald-950/80 leading-relaxed font-normal">
+            {text}
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default function AboutPage() {
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 1.1])
+
+  return (
+    <main ref={containerRef} className="relative bg-emerald-50/10">
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <motion.div 
+          style={{ opacity: heroOpacity, scale: heroScale }}
+          className="absolute inset-0 z-0"
+        >
+          <Image 
+            src="/images/hero.png" 
+            alt="Nature Background" 
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-emerald-950/40 via-transparent to-emerald-50/50" />
+        </motion.div>
+
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h1 className="text-6xl md:text-8xl font-bold text-white drop-shadow-lg tracking-tight">
+              Silent <span className="text-emerald-300">Souls</span>
+            </h1>
+            <p className="mt-6 text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed drop-shadow">
+              We started with a breath of fresh air and a vision for a cleaner, greener Haridwar.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          >
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
+              <motion.div 
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1.5 h-1.5 bg-white rounded-full"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Story Introduction */}
+      <section className="py-24 text-center px-6 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <span className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-sm">Our Essence</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-emerald-950">A legacy of silence that speaks volumes.</h2>
+          <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full" />
+          <p className="text-xl text-emerald-950/80 leading-relaxed font-normal">
+            Silent Souls was born out of a simple observation: the world needs more listeners. In the bustling spiritual capital of Haridwar, we found our voice by listening to the whispered needs of nature.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Story Chapters */}
+      <StorySection 
+        index="01"
+        title="The Sacred Awakening"
+        text="It began at the banks of the Ganges. We saw the devotion of millions, but we also saw the remnants—the flowers, the plastics, the silent plea of the waters. We decided to turn reverence into responsibility."
+        image="/images/story-1.png"
+      />
+
+      <StorySection 
+        index="02"
+        title="Community Roots"
+        reverse
+        text="An NGO is only as strong as its community. We partnered with local artisans and youth to transform waste into wellness. From sacred marigolds to handmade incense, every step is a story of reconnection."
+        image="/images/hero.png" // Reusing hero image but would normally be different
+      />
+
+      <StorySection 
+        index="03"
+        isLast
+        title="Harmony for Every Breath"
+        text="Our compassion extends beyond the soil. We believe that true wellness encompasses every heartbeat in our city. From providing clean water to the street-side cows to ensuring birds have safe nesting grounds, we nurture the silent souls that grace our streets."
+        image="/images/wellness.png"
+      />
+
+      {/* Stats Section */}
+      <section className="py-24 bg-emerald-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-emerald-50/10 to-transparent" />
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+          {[
+            { label: "River Cleaned", value: "50km+", icon: Leaf },
+            { label: "Hearts Touched", value: "10k+", icon: Heart },
+            { label: "Active Volunteers", value: "500+", icon: Users },
+            { label: "Seeds Planted", value: "25k+", icon: Sprout },
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="space-y-2"
+            >
+              <stat.icon className="mx-auto text-emerald-400 mb-4" size={32} />
+              <div className="text-4xl font-bold font-display">{stat.value}</div>
+              <div className="text-emerald-300/70 text-sm uppercase tracking-widest">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Vision Statement */}
+      <section className="py-32 px-6 flex items-center justify-center text-center">
+        <div className="max-w-3xl space-y-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-4xl font-bold text-emerald-950 italic">"Our mission is to create a symphony of sustainability where every soul finds peace in a preserved planet."</h3>
+            <p className="mt-8 text-emerald-600 font-bold uppercase tracking-wider">— Manik Bansal, Founder</p>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  )
+}
