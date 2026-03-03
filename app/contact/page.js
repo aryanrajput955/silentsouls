@@ -115,7 +115,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email Us</h4>
                     <p className="text-gray-600 text-sm md:text-base">
-                      <a href="mailto:namaste@silentsouls.org" className="hover:text-emerald-600 transition-colors">namaste@silentsouls.org</a>
+                      <a href="mailto:connect@silentsouls.org" className="hover:text-emerald-600 transition-colors">connect@silentsouls.org</a>
                     </p>
                   </div>
                 </div>

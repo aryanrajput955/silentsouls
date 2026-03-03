@@ -17,6 +17,12 @@ const outfit = Outfit({
 export const metadata = {
   title: "SilentSouls - Sacred environmental recycling & wellness in Haridwar",
   description: "A Haridwar-based initiative dedicated to living things wellness and environmental preservation by recycling sacred materials through our Sacred Dhara project.",
+  icons: {
+    icon: "/logo.png",
+    "apple": "/logo.png",
+    "sizes": "180x180",
+    "type": "image/png",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -195,7 +195,15 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">
                   Featured Project
                 </div>
-                <h2 className="text-5xl font-bold mb-8">Sacred Dhara</h2>
+                <h2 className="text-5xl font-bold mb-4">Sacred Dhara</h2>
+                <div className="mb-8">
+                  <p className="text-emerald-400 text-sm font-medium uppercase tracking-widest flex items-center gap-2">
+                    In collaboration with 
+                    <a href="https://www.ancienthealth.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-emerald-300 underline underline-offset-4 decoration-emerald-500/50 transition-colors">
+                      Ancient Health
+                    </a>
+                  </p>
+                </div>
                 <p className="text-xl text-emerald-100/80 leading-relaxed font-light">
                   We collect floral waste from major ghats and temples, transforming them into "Dhara"—the flow of life. Nothing is wasted; everything is honored.
                 </p>
