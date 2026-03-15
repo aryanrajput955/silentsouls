@@ -23,17 +23,17 @@ const staggerContainer = {
 
 export default function ValueProposition() {
   return (
-    <section className="py-32 bg-[#fdfdfc]">
+    <section className="py-16 md:py-32 bg-[#fdfdfc]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-24 items-end mb-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-12 md:mb-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp}
           >
-            <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm block mb-4">The Silent Problem</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-emerald-950 leading-tight">
+            <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs md:text-sm block mb-4">The Silent Problem</span>
+            <h2 className="text-3xl md:text-6xl font-bold text-emerald-950 leading-tight">
               Faith shouldn't <br /> cost the Earth.
             </h2>
           </motion.div>
@@ -78,9 +78,9 @@ export default function ValueProposition() {
             <motion.div 
               key={i}
               variants={fadeUp}
-              className="p-10 rounded-[2.5rem] bg-white border border-emerald-100/50 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-500 group"
+              className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-white border border-emerald-100/50 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-500 group"
             >
-              <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-8 transform group-hover:scale-110 transition-transform`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl ${item.color} flex items-center justify-center mb-6 md:mb-8 transform group-hover:scale-110 transition-transform`}>
                 <item.icon size={28} />
               </div>
               <h3 className="text-2xl font-bold text-emerald-950 mb-4">{item.title}</h3>

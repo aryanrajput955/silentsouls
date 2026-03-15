@@ -13,13 +13,13 @@ const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLas
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section ref={ref} className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <section ref={ref} className="relative py-12 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
       {/* Narrative Thread (Vertical Line) */}
       {!isLast && (
         <div className="absolute left-1/2 bottom-0 w-px h-24 bg-linear-to-b from-emerald-200 to-transparent hidden md:block" />
       )}
       
-      <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-24 max-w-7xl mx-auto`}>
+      <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12 lg:gap-24 max-w-7xl mx-auto`}>
         <motion.div 
           className="w-full md:w-1/2"
           initial={{ opacity: 0, x: reverse ? 50 : -50 }}
@@ -27,7 +27,7 @@ const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLas
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="relative group overflow-hidden rounded-[2.5rem] aspect-4/3 shadow-2xl border-8 border-white">
+          <div className="relative group overflow-hidden rounded-[2rem] md:rounded-[2.5rem] aspect-4/3 shadow-2xl border-4 md:border-8 border-white">
             <CloudinaryImage 
               src={cloudinaryId} 
               alt={title} 
@@ -39,7 +39,7 @@ const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLas
         </motion.div>
 
         <motion.div 
-          className="w-full md:w-1/2 space-y-8"
+          className="w-full md:w-1/2 space-y-6 md:space-y-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -52,10 +52,10 @@ const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLas
             <div className="h-px w-8 bg-emerald-200" />
             <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs">The Chapter</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-emerald-950">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight text-emerald-950">
             {title}
           </h2>
-          <p className="text-xl text-emerald-950/90 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-emerald-950/90 leading-relaxed font-medium">
             {text}
           </p>
         </motion.div>
@@ -101,10 +101,10 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-white drop-shadow-lg tracking-tight">
+            <h1 className="text-5xl md:text-8xl font-bold text-white drop-shadow-lg tracking-tight">
               Silent <span className="text-emerald-300">Souls</span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow">
+            <p className="mt-4 md:mt-6 text-lg md:text-2xl text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow px-4">
               We started with a breath of fresh air and a vision for a cleaner, greener Haridwar.
             </p>
           </motion.div>
@@ -113,15 +113,15 @@ export default function AboutPage() {
       </section>
 
       {/* Story Introduction */}
-      <section className="py-24 text-center px-6 max-w-4xl mx-auto">
+      <section className="py-16 md:py-24 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <span className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-sm">Our Essence</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-emerald-950">A legacy of silence that speaks volumes.</h2>
+          <span className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-xs md:text-sm">Our Essence</span>
+          <h2 className="text-2xl md:text-5xl font-bold text-emerald-950">A legacy of silence that speaks volumes.</h2>
           <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full" />
           <p className="text-xl text-emerald-950/90 leading-relaxed font-medium">
             Silent Souls was born out of a simple observation: the world needs more listeners. In the bustling spiritual capital of Haridwar, we found our voice by listening to the whispered needs of nature.
@@ -154,9 +154,9 @@ export default function AboutPage() {
       />
 
       {/* Stats Section */}
-      <section className="py-24 bg-emerald-900 text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-emerald-900 text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-emerald-50/10 to-transparent" />
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
           {[
             { label: "River Cleaned", value: "50km+", icon: Leaf },
             { label: "Hearts Touched", value: "10k+", icon: Heart },
@@ -169,10 +169,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="space-y-2"
+              className="space-y-1 md:space-y-2"
             >
-              <stat.icon className="mx-auto text-emerald-400 mb-4" size={32} />
-              <div className="text-4xl font-bold font-display">{stat.value}</div>
+              <stat.icon className="mx-auto text-emerald-400 mb-2 md:mb-4" size={stat.label === "River Cleaned" ? 28 : 32} />
+              <div className="text-3xl md:text-4xl font-bold font-display">{stat.value}</div>
               <div className="text-emerald-300/70 text-sm uppercase tracking-widest">{stat.label}</div>
             </motion.div>
           ))}
@@ -180,15 +180,15 @@ export default function AboutPage() {
       </section>
 
       {/* Vision Statement */}
-      <section className="py-32 px-6 flex items-center justify-center text-center">
+      <section className="py-20 md:py-32 px-6 flex items-center justify-center text-center">
         <div className="max-w-3xl space-y-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-4xl font-bold text-emerald-950 italic">"Our mission is to create a symphony of sustainability where every soul finds peace in a preserved planet."</h3>
-            <p className="mt-8 text-emerald-600 font-bold uppercase tracking-wider">— Manik Bansal, Founder</p>
+            <h3 className="text-2xl md:text-4xl font-bold text-emerald-950 italic">"Our mission is to create a symphony of sustainability where every soul finds peace in a preserved planet."</h3>
+            <p className="mt-6 md:mt-8 text-emerald-600 font-bold uppercase tracking-wider text-sm md:text-base">— Manik Bansal, Founder</p>
           </motion.div>
         </div>
       </section>

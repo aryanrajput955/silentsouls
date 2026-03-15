@@ -45,7 +45,7 @@ export default function Hero({ heroImageY, heroTextOpacity, heroTextY }) {
       
       <motion.div 
         style={{ opacity: heroTextOpacity, y: heroTextY }}
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center"
+        className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full text-center"
       >
         <motion.div 
           initial="hidden"
@@ -53,29 +53,29 @@ export default function Hero({ heroImageY, heroTextOpacity, heroTextY }) {
           variants={staggerContainer}
           className="max-w-4xl mx-auto"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-8 py-2 px-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-6 md:mb-8 py-2 px-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-white text-xs font-semibold tracking-[0.2em] uppercase">Restoring the Sacred Balance</span>
+            <span className="text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase">Restoring the Sacred Balance</span>
           </motion.div>
 
-          <motion.h1 variants={fadeUp} className="text-6xl md:text-8xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-8xl font-bold text-white leading-tight md:leading-[1.1] mb-6 md:mb-8 tracking-tight">
             Quietly Saving <br />
             <span className="text-emerald-300 italic">Haridwar's Soul.</span>
           </motion.h1>
           
-          <motion.p variants={fadeUp} className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto leading-relaxed">
+          <motion.p variants={fadeUp} className="text-lg md:text-2xl text-white mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4 md:px-0 opacity-90">
             Transforming temple offerings into environmental restoration. A dedicated movement for the wellness of all living things.
           </motion.p>
           
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/about" className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-full bg-white text-emerald-950 hover:bg-emerald-50 transition-all shadow-xl hover:shadow-emerald-500/20">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+            <Link href="/about" className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold rounded-full bg-white text-emerald-950 hover:bg-emerald-50 transition-all shadow-xl hover:shadow-emerald-500/20 w-full sm:w-auto">
               Our Story
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
-            <a href="#sacred-dhara" className="text-white font-semibold hover:text-emerald-300 transition-colors py-4">
+            <a href="#sacred-dhara" className="text-white font-semibold hover:text-emerald-300 transition-colors py-4 px-8">
               Explore Initiative
             </a>
           </motion.div>

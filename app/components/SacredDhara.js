@@ -24,22 +24,22 @@ const SACRED_IMAGE_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v177
 
 export default function SacredDhara() {
   return (
-    <section id="sacred-dhara" className="py-24 bg-emerald-950 text-white relative rounded-[4rem] mx-4 overflow-hidden shadow-2xl">
+    <section id="sacred-dhara" className="py-16 md:py-24 bg-emerald-950 text-white relative rounded-[2rem] md:rounded-[4rem] mx-4 overflow-hidden shadow-2xl">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-emerald-900/20 skew-x-12 translate-x-1/2" />
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="space-y-12"
+            className="space-y-8 md:space-y-12"
           >
             <motion.div variants={fadeUp}>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">
                 Featured Project
               </div>
-              <h2 className="text-5xl font-bold mb-4">Sacred Dhara</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Sacred Dhara</h2>
               <div className="mb-8">
                 <p className="text-emerald-400 text-sm font-medium uppercase tracking-widest flex items-center gap-2">
                   In collaboration with 
@@ -79,7 +79,7 @@ export default function SacredDhara() {
             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="relative aspect-4/5 rounded-[3rem] overflow-hidden shadow-2xl"
+            className="relative aspect-4/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl"
           >
             <CloudinaryImage 
               src={SACRED_IMAGE_URL}
@@ -88,8 +88,8 @@ export default function SacredDhara() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-emerald-950/80 to-transparent" />
-            <div className="absolute bottom-10 left-10">
-              <div className="text-3xl font-bold">100% Sacred</div>
+            <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+              <div className="text-2xl md:text-3xl font-bold">100% Sacred</div>
               <div className="text-emerald-400 font-medium">Stewardship of Devotion</div>
             </div>
           </motion.div>
