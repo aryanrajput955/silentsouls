@@ -26,7 +26,7 @@ export default function SacredDhara() {
   return (
     <section id="sacred-dhara" className="py-16 md:py-24 bg-emerald-950 text-white relative rounded-[2rem] md:rounded-[4rem] mx-4 overflow-hidden shadow-2xl">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-emerald-900/20 skew-x-12 translate-x-1/2" />
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div 
             initial="hidden"
@@ -40,10 +40,10 @@ export default function SacredDhara() {
                 Featured Project
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Sacred Dhara</h2>
-              <div className="mb-8">
-                <p className="text-emerald-400 text-sm font-medium uppercase tracking-widest flex items-center gap-2">
-                  In collaboration with 
-                  <a href="https://www.ancienthealth.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-emerald-300 underline underline-offset-4 decoration-emerald-500/50 transition-colors">
+              <div className="mb-6 md:mb-8">
+                <p className="text-emerald-400 text-xs sm:text-sm font-medium uppercase tracking-[0.12em] sm:tracking-widest leading-relaxed flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
+                  <span>In collaboration with</span>
+                  <a href="https://www.ancienthealth.in/" target="_blank" rel="noopener noreferrer" className="inline-flex w-fit text-white hover:text-emerald-300 underline underline-offset-4 decoration-emerald-500/50 transition-colors">
                     Ancient Health
                   </a>
                 </p>
@@ -79,18 +79,21 @@ export default function SacredDhara() {
             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="relative aspect-4/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl"
+            className="relative w-full max-w-md mx-auto lg:max-w-none aspect-[4/5] min-h-[320px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl"
           >
             <CloudinaryImage 
               src={SACRED_IMAGE_URL}
               alt="Sacred materials collection"
               fill
               className="object-cover"
+              sizes="(max-width: 640px) calc(100vw - 4.5rem), (max-width: 1024px) 70vw, 45vw"
             />
             <div className="absolute inset-0 bg-linear-to-t from-emerald-950/80 to-transparent" />
-            <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
-              <div className="text-2xl md:text-3xl font-bold">100% Sacred</div>
-              <div className="text-emerald-400 font-medium">Stewardship of Devotion</div>
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 md:bottom-10 md:left-10 md:right-auto">
+              <div className="inline-block max-w-full rounded-2xl bg-emerald-950/55 backdrop-blur-sm px-4 py-3 md:px-5 md:py-4">
+                <div className="text-lg sm:text-2xl md:text-3xl font-bold leading-tight">100% Sacred</div>
+                <div className="text-sm sm:text-base text-emerald-300 font-medium leading-snug">Stewardship of Devotion</div>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -49,7 +49,7 @@ export default function Wellness() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
-              className="absolute -bottom-4 -right-4 lg:-right-12 bg-emerald-50 px-6 py-8 md:px-8 md:py-10 rounded-3xl md:rounded-4xl shadow-xl max-w-[240px] md:max-w-[300px] border border-emerald-100"
+              className="hidden sm:block absolute -bottom-4 -right-4 lg:-right-12 bg-emerald-50 px-6 py-8 md:px-8 md:py-10 rounded-3xl md:rounded-4xl shadow-xl max-w-[240px] md:max-w-[300px] border border-emerald-100"
             >
               <p className="text-emerald-900 font-medium italic leading-relaxed text-sm md:text-base">
                 "Compassion knows no species; our devotion reaches every beating heart."
