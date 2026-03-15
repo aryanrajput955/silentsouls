@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import Image from "next/image";
+import CloudinaryImage from "./CloudinaryImage";
 
-// REPLACE THIS with your actual Cloudinary URL
-const LOGO_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v1772535934/silent_yuaarf.png";
+const LOGO_PUBLIC_ID = "silent_yuaarf";
 
 export default function Footer() {
   return (
@@ -13,8 +12,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-4 mb-6 group">
               <div className="relative w-16 h-16 overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src={LOGO_URL}
+                <CloudinaryImage 
+                  src={LOGO_PUBLIC_ID}
                   alt="SilentSouls Logo"
                   fill
                   className="object-contain"

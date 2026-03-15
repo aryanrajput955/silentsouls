@@ -43,14 +43,30 @@ export default function ContactPage() {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      try {
+        const response = await fetch('/api/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setSubmitSuccess(true);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          // Reset success message after 10 seconds
+          setTimeout(() => setSubmitSuccess(false), 10000);
+        } else {
+          setErrors({ submit: result.error || "Failed to send message. Please try again." });
+        }
+      } catch (error) {
+        setErrors({ submit: "An error occurred. Please check your connection." });
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -127,7 +143,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Call Us</h4>
                     <p className="text-gray-600 text-sm md:text-base">
-                      <a href="tel:+918433023265" className="hover:text-emerald-600 transition-colors">+91 84330 23265</a>
+                      <a href="tel:+918433023265" className="hover:text-emerald-600 transition-colors">91 84330 23265</a>
                     </p>
                   </div>
                 </div>
@@ -165,6 +181,11 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {errors.submit && (
+                    <div className="bg-red-50 text-red-800 p-4 rounded-xl border border-red-200 mb-6 text-sm">
+                      {errors.submit}
+                    </div>
+                  )}
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Name */}
                     <div className="space-y-2">

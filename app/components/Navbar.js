@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
+import CloudinaryImage from "./CloudinaryImage";
 
-// REPLACE THIS with your actual Cloudinary URL
-const LOGO_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v1772535934/silent_yuaarf.png";
+// The Public ID for your logo on Cloudinary
+const LOGO_PUBLIC_ID = "silent_yuaarf";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,8 +52,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative w-10 h-10 overflow-hidden transform group-hover:scale-110 transition-transform duration-300">
-              <Image 
-                src={LOGO_URL}
+              <CloudinaryImage 
+                src={LOGO_PUBLIC_ID}
                 alt="SilentSouls Logo"
                 fill
                 className="object-contain"

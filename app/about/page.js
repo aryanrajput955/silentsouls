@@ -1,11 +1,14 @@
 "use client"
 
+import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import Image from 'next/image'
+import CloudinaryImage from '../components/CloudinaryImage'
 import { Heart, Leaf, Users, Sprout, ArrowRight } from 'lucide-react'
 
-const StorySection = ({ title, text, image, reverse = false, index, isLast = false }) => {
+const HERO_IMAGE_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v1773556770/haridawr_sxqxsl.jpg";
+
+const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLast = false }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -25,8 +28,8 @@ const StorySection = ({ title, text, image, reverse = false, index, isLast = fal
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="relative group overflow-hidden rounded-[2.5rem] aspect-4/3 shadow-2xl border-8 border-white">
-            <Image 
-              src={image} 
+            <CloudinaryImage 
+              src={cloudinaryId} 
               alt={title} 
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -52,7 +55,7 @@ const StorySection = ({ title, text, image, reverse = false, index, isLast = fal
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-emerald-950">
             {title}
           </h2>
-          <p className="text-xl text-emerald-950/80 leading-relaxed font-normal">
+          <p className="text-xl text-emerald-950/90 leading-relaxed font-medium">
             {text}
           </p>
         </motion.div>
@@ -79,14 +82,17 @@ export default function AboutPage() {
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="absolute inset-0 z-0"
         >
-          <Image 
-            src="/images/hero.png" 
+          <CloudinaryImage 
+            src={HERO_IMAGE_URL} 
             alt="Nature Background" 
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            quality="auto:best"
           />
-          <div className="absolute inset-0 bg-linear-to-b from-emerald-950/40 via-transparent to-emerald-50/50" />
+          <div className="absolute inset-0 bg-emerald-950/40" />
+          <div className="absolute inset-0 bg-linear-to-b from-emerald-950/60 via-transparent to-emerald-950/40" />
         </motion.div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-8">
@@ -98,7 +104,7 @@ export default function AboutPage() {
             <h1 className="text-6xl md:text-8xl font-bold text-white drop-shadow-lg tracking-tight">
               Silent <span className="text-emerald-300">Souls</span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed drop-shadow">
+            <p className="mt-6 text-xl md:text-2xl text-white font-medium max-w-2xl mx-auto leading-relaxed drop-shadow">
               We started with a breath of fresh air and a vision for a cleaner, greener Haridwar.
             </p>
           </motion.div>
@@ -117,7 +123,7 @@ export default function AboutPage() {
           <span className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-sm">Our Essence</span>
           <h2 className="text-3xl md:text-5xl font-bold text-emerald-950">A legacy of silence that speaks volumes.</h2>
           <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full" />
-          <p className="text-xl text-emerald-950/80 leading-relaxed font-normal">
+          <p className="text-xl text-emerald-950/90 leading-relaxed font-medium">
             Silent Souls was born out of a simple observation: the world needs more listeners. In the bustling spiritual capital of Haridwar, we found our voice by listening to the whispered needs of nature.
           </p>
         </motion.div>
@@ -127,24 +133,24 @@ export default function AboutPage() {
       <StorySection 
         index="01"
         title="The Sacred Awakening"
-        text="It began at the banks of the Ganges. We saw the devotion of millions, but we also saw the remnants—the flowers, the plastics, the silent plea of the waters. We decided to turn reverence into responsibility."
-        image="/images/story-1.png"
+        text="It began at the banks of the Ganges. We saw the devotion of millions, but we also saw the remnants left in the wake of ritual. We realized that true reverence means ensuring every offering is treated with the dignity it deserves, even after the prayer is over."
+        cloudinaryId="sacred_flowers_basket_l1bbh7"
       />
 
       <StorySection 
         index="02"
-        title="Community Roots"
+        title="Stewardship of Faith"
         reverse
-        text="An NGO is only as strong as its community. We partnered with local artisans and youth to transform waste into wellness. From sacred marigolds to handmade incense, every step is a story of reconnection."
-        image="/images/hero.png" // Reusing hero image but would normally be different
+        text="Our mission grew into a community effort to provide a respectful path for sacred materials to return to the elements. We work alongside local hands to ensure that every flower and every grain offered in faith is honored and preserved from neglect."
+        cloudinaryId="h4_vucszr"
       />
 
       <StorySection 
         index="03"
         isLast
         title="Harmony for Every Breath"
-        text="Our compassion extends beyond the soil. We believe that true wellness encompasses every heartbeat in our city. From providing clean water to the street-side cows to ensuring birds have safe nesting grounds, we nurture the silent souls that grace our streets."
-        image="/images/wellness.png"
+        text="This stewardship extends beyond the ritual. By safeguarding our sacred spaces, we protect the homes of the silent souls that grace Haridwar—the local wildlife, the street-side companions, and the fragile ecosystem that breathes alongside us."
+        cloudinaryId="gettyimages-898871398-612x612_nzythr"
       />
 
       {/* Stats Section */}
