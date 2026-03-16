@@ -1,44 +1,29 @@
-"use client";
+import HomeClient from "./HomeClient";
+import JsonLd from "./components/JsonLd";
 
-import dynamic from "next/dynamic";
-import { useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Hero from "./components/Hero";
-import ValueProposition from "./components/ValueProposition";
-
-const SacredDhara = dynamic(() => import("./components/SacredDhara"), { ssr: true });
-const Wellness = dynamic(() => import("./components/Wellness"), { ssr: true });
-const CTA = dynamic(() => import("./components/CTA"), { ssr: true });
+export const metadata = {
+  title: "Home | SilentSouls - Sacred environmental recycling & wellness in Haridwar",
+  description: "Join SilentSouls in Haridwar for environmental preservation through our Sacred Dhara project. We transform temple offerings into ecological restoration.",
+};
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  // Parallax transforms for segments
-  const heroImageY = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
-  const heroTextOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-  const heroTextY = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Sacred Dhara Project",
+    "provider": {
+      "@type": "Organization",
+      "name": "SilentSouls"
+    },
+    "areaServed": "Haridwar, Uttarakhand",
+    "description": "Environmental restoration by stewarding sacred materials from temple offerings.",
+    "serviceType": "Environmental Recycling"
+  };
 
   return (
-    <main ref={containerRef} className="flex flex-col min-h-screen bg-[#fdfdfc] selection:bg-emerald-100 selection:text-emerald-900">
-      
-      <Hero 
-        heroImageY={heroImageY} 
-        heroTextOpacity={heroTextOpacity} 
-        heroTextY={heroTextY} 
-      />
-
-      <ValueProposition />
-
-      <SacredDhara />
-
-      <Wellness />
-
-      <CTA />
-
-    </main>
+    <>
+      <JsonLd data={serviceSchema} />
+      <HomeClient />
+    </>
   );
 }
