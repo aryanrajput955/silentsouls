@@ -4,6 +4,10 @@ import JsonLd from "../components/JsonLd";
 export const metadata = {
   title: "Our Story | SilentSouls",
   description: "Learn about SilentSouls, a Haridwar-based movement started by Manik Bansal to restore the sacred balance between faith and nature.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function AboutPage() {
@@ -22,29 +26,9 @@ export default function AboutPage() {
     }
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://silentsouls.org"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Our Story",
-        "item": "https://silentsouls.org/about"
-      }
-    ]
-  };
-
   return (
     <>
       <JsonLd data={aboutSchema} />
-      <JsonLd data={breadcrumbSchema} />
       <AboutClient />
     </>
   );

@@ -2,8 +2,12 @@ import HomeClient from "./HomeClient";
 import JsonLd from "./components/JsonLd";
 
 export const metadata = {
-  title: "Home | SilentSouls - Sacred environmental recycling & wellness in Haridwar",
+  title: "SilentSouls | Sacred environmental recycling & wellness in Haridwar",
   description: "Join SilentSouls in Haridwar for environmental preservation through our Sacred Dhara project. We transform temple offerings into ecological restoration.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function Home() {
