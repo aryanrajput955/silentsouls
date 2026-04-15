@@ -197,7 +197,7 @@ export default function ContactClient() {
                         value={formData.name}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-200 focus:ring-emerald-500 focus:border-emerald-500'} bg-gray-50/50 focus:bg-white transition-colors outline-none ring-1 ring-transparent focus:ring-2`}
-                        placeholder="John Doe"
+                        placeholder="Amit Verma"
                       />
                       {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
@@ -212,7 +212,7 @@ export default function ContactClient() {
                         value={formData.email}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-200 focus:ring-emerald-500 focus:border-emerald-500'} bg-gray-50/50 focus:bg-white transition-colors outline-none ring-1 ring-transparent focus:ring-2`}
-                        placeholder="john@example.com"
+                        placeholder="amit@example.com"
                       />
                       {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>

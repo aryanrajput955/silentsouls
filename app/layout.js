@@ -15,19 +15,16 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://silentsouls.org"),
+  metadataBase: new URL("https://www.silentsouls.org"),
   title: {
     default: "SilentSouls - Transforming Temple Offerings into Environmental Restoration",
     template: "%s | SilentSouls"
   },
   description: "A Haridwar-based initiative by Manik Bansal dedicated to environmental preservation and wellness by stewarding sacred temple materials through the Sacred Dhara project.",
   keywords: ["environmental recycling", "wellness Haridwar", "Sacred Dhara", "temple offering recycling", "Ganges cleaning", "sustainable Haridwar", "Silent Souls", "Manik Bansal", "faith-based ecology"],
-  authors: [{ name: "Manik Bansal", url: "https://silentsouls.org/about" }],
+  authors: [{ name: "Manik Bansal", url: "https://www.silentsouls.org/about" }],
   creator: "Manik Bansal",
   publisher: "SilentSouls",
-  alternates: {
-    canonical: "/",
-  },
   manifest: "/manifest.json",
   themeColor: "#065f46", // emerald-800
   viewport: {
@@ -52,7 +49,7 @@ export const metadata = {
   openGraph: {
     title: "SilentSouls - Sacred environmental recycling & wellness in Haridwar",
     description: "Stewarding sacred materials and preserving the environment in Haridwar through the Sacred Dhara initiative.",
-    url: "https://silentsouls.org",
+    url: "https://www.silentsouls.org",
     siteName: "SilentSouls",
     images: [
       {
@@ -75,7 +72,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -91,10 +87,10 @@ export default function RootLayout({ children }) {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "NGO",
-    "@id": "https://silentsouls.org/#organization",
+    "@id": "https://www.silentsouls.org/#organization",
     "name": "SilentSouls",
-    "url": "https://silentsouls.org",
-    "logo": "https://silentsouls.org/logo.png",
+    "url": "https://www.silentsouls.org",
+    "logo": "https://www.silentsouls.org/logo.png",
     "image": "https://res.cloudinary.com/dhlvq35cc/image/upload/v1773556770/haridawr_sxqxsl.jpg",
     "description": "A Haridwar-based initiative dedicated to living things wellness and environmental preservation.",
     "address": {
@@ -105,7 +101,7 @@ export default function RootLayout({ children }) {
     },
     "founder": {
       "@type": "Person",
-      "@id": "https://silentsouls.org/#founder",
+      "@id": "https://www.silentsouls.org/#founder",
       "name": "Manik Bansal",
       "jobTitle": "Founder",
       "sameAs": [
@@ -121,13 +117,13 @@ export default function RootLayout({ children }) {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://silentsouls.org/#website",
-    "url": "https://silentsouls.org",
+    "@id": "https://www.silentsouls.org/#website",
+    "url": "https://www.silentsouls.org",
     "name": "SilentSouls",
-    "publisher": { "@id": "https://silentsouls.org/#organization" },
+    "publisher": { "@id": "https://www.silentsouls.org/#organization" },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://silentsouls.org/search?q={search_term_string}",
+      "target": "https://www.silentsouls.org/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

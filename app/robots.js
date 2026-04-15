@@ -6,6 +6,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://silentsouls.org/sitemap.xml',
+    sitemap: 'https://www.silentsouls.org/sitemap.xml',
   }
 }

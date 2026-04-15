@@ -33,9 +33,9 @@ export default function HomeClient() {
 
       <ValueProposition />
 
+      <Wellness />
       <SacredDhara />
 
-      <Wellness />
 
       <CTA />
 

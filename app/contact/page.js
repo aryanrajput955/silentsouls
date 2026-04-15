@@ -8,6 +8,9 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -62,12 +62,12 @@ export default function Hero({ heroImageY, heroTextOpacity, heroTextY }) {
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-8xl font-bold text-white leading-tight md:leading-[1.1] mb-6 md:mb-8 tracking-tight">
-            Quietly Saving <br />
-            <span className="text-emerald-300 italic">Haridwar's Soul.</span>
+            Restoring Harmony <br />
+            <span className="text-emerald-300 italic">for Every Soul.</span>
           </motion.h1>
           
           <motion.p variants={fadeUp} className="text-lg md:text-2xl text-white mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4 md:px-0 opacity-90">
-            Transforming temple offerings into environmental restoration. A dedicated movement for the wellness of all living things.
+            Stewarding sacred offerings and nurturing the wellness of all living beings in Haridwar.
           </motion.p>
           
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">

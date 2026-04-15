@@ -26,8 +26,11 @@ const WELLNESS_IMAGE_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v1
 
 export default function Wellness() {
   return (
-    <section className="py-16 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
+    <section className="py-16 md:py-32 bg-linear-to-b from-white via-emerald-50/20 to-white relative overflow-hidden">
+      {/* Decorative Background Element */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl" />
+      
+      <div className="max-w-7xl mx-auto px-6 text-center lg:text-left relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
@@ -49,9 +52,9 @@ export default function Wellness() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
-              className="hidden sm:block absolute -bottom-4 -right-4 lg:-right-12 bg-emerald-50 px-6 py-8 md:px-8 md:py-10 rounded-3xl md:rounded-4xl shadow-xl max-w-[240px] md:max-w-[300px] border border-emerald-100"
+              className="hidden sm:block absolute -bottom-4 -right-4 lg:-right-12 bg-white/80 backdrop-blur-xl px-6 py-8 md:px-8 md:py-10 rounded-3xl md:rounded-4xl shadow-2xl max-w-[240px] md:max-w-[300px] border border-white/40 ring-1 ring-emerald-100"
             >
-              <p className="text-emerald-900 font-medium italic leading-relaxed text-sm md:text-base">
+              <p className="text-emerald-900 font-bold italic leading-relaxed text-sm md:text-lg">
                 "Compassion knows no species; our devotion reaches every beating heart."
               </p>
             </motion.div>

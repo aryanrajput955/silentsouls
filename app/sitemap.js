@@ -1,6 +1,6 @@
 
 export default function sitemap() {
-  const baseUrl = 'https://silentsouls.org';
+  const baseUrl = 'https://www.silentsouls.org';
   
   // Define your static routes here
   const routes = ['', '/about', '/contact'].map((route) => ({

@@ -1,11 +1,24 @@
 "use client"
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
 import CloudinaryImage from '../components/CloudinaryImage'
 import { Heart, Leaf, Users, Sprout } from 'lucide-react'
 
 const HERO_IMAGE_URL = "https://res.cloudinary.com/dhlvq35cc/image/upload/v1773556770/haridawr_sxqxsl.jpg";
+
+const QUOTES = [
+  {
+    text: "Our mission is to create a symphony of sustainability where every soul finds peace in a preserved planet.",
+    author: "Manik Bansal",
+    role: "Founder"
+  },
+  {
+    text: "True stewardship begins with noticing the silent needs of the world around us and acting with compassion.",
+    author: "Lakshya Chauhan",
+    role: "Core Member"
+  }
+];
 
 const StorySection = ({ title, text, cloudinaryId, reverse = false, index, isLast = false }) => {
   const ref = useRef(null)
@@ -72,6 +85,15 @@ export default function AboutClient() {
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 1.1])
+
+  const [currentQuote, setCurrentQuote] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % QUOTES.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <main ref={containerRef} className="relative bg-emerald-50/10">
@@ -157,7 +179,7 @@ export default function AboutClient() {
         <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-emerald-50/10 to-transparent" />
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
           {[
-            { label: "River Cleaned", value: "50km+", icon: Leaf },
+            { label: "River Cleaned", value: "5km+", icon: Leaf },
             { label: "Hearts Touched", value: "10k+", icon: Heart },
             { label: "Active Volunteers", value: "500+", icon: Users },
             { label: "Seeds Planted", value: "25k+", icon: Sprout },
@@ -179,16 +201,25 @@ export default function AboutClient() {
       </section>
 
       {/* Vision Statement */}
-      <section className="py-20 md:py-32 px-6 flex items-center justify-center text-center">
-        <div className="max-w-3xl space-y-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl md:text-4xl font-bold text-emerald-950 italic">"Our mission is to create a symphony of sustainability where every soul finds peace in a preserved planet."</h3>
-            <p className="mt-6 md:mt-8 text-emerald-600 font-bold uppercase tracking-wider text-sm md:text-base">— Manik Bansal, Founder</p>
-          </motion.div>
+      <section className="py-20 md:py-32 px-6 flex items-center justify-center text-center overflow-hidden">
+        <div className="max-w-3xl space-y-8 min-h-[200px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentQuote}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-6 md:space-y-8"
+            >
+              <h3 className="text-2xl md:text-4xl font-bold text-emerald-950 italic leading-tight">
+                "{QUOTES[currentQuote].text}"
+              </h3>
+              <p className="text-emerald-600 font-bold uppercase tracking-wider text-sm md:text-base">
+                — {QUOTES[currentQuote].author}, {QUOTES[currentQuote].role}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
     </main>
